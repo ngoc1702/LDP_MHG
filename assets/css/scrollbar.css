@@ -1,0 +1,8 @@
+#program-container::-webkit-scrollbar {
+   width: 5px;
+}
+
+#program-container::-webkit-scrollbar-thumb{
+   width: 10px;
+   background-color: red;
+}
