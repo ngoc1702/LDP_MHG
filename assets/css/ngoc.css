@@ -1,0 +1,59 @@
+.bg-white {
+    background-color: white !important;
+  }
+.text-black{
+    color:black !important
+}
+
+.bg-primary{
+ background-color:#003A34;
+}
+
+.bg-primary2{
+    background: var(--Brand-1, #D2A97D);
+   }
+.text-orange-300{
+    color:#D2A97D !important
+}
+
+.btn:hover{
+    background:#F2CA8F !important;
+}
+
+img{
+    object-fit: cover !important; 
+}
+
+li{
+    list-style-type: none; 
+}
+
+.max-content{
+    max-width:1280px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.active{
+    color:#F2CA8F;
+    padding-bottom: 3px !important;
+    border-bottom: 2px solid #F2CA8F !important;
+}
+
+.nav__link:hover{
+    color:#F2CA8F;
+    padding-bottom: 3px !important;
+    border-bottom: 2px solid #F2CA8F !important;
+}
+
+.black {
+    fill: black !important; /* Màu mặc định */
+  }
+
+  .postion{
+    position:fixed;
+    display:flex;
+    bottom:20;
+    right:5;
+
+  }
