@@ -11,6 +11,7 @@ window.addEventListener('scroll', function() {
   if (window.scrollY > 80) {
     console.log("SCROLL")
     header.classList.add('bg-white');
+    header.classList.add('top');
     svgElement1.setAttribute('fill', 'black');
     svgElement2.setAttribute('fill', 'black');
     svgElement3.setAttribute('fill', 'black');
@@ -45,6 +46,11 @@ function closeModalMobile() {
   document.getElementById("modalContainer").style.display = "none";
   document.getElementById("close_menu").style.display = "none";
   document.getElementById("open_menu").style.display = "flex";
+}
+
+function closeNotication() {
+  document.getElementById("notification").style.display = "none";
+  document.getElementById("header").classList.add('top');;
 }
 
 //Active header
@@ -101,8 +107,12 @@ function toggleContent(group) {
 
 
 
-var swiper = new Swiper(".mySwiper_about", {
-  spaceBetween: 30,
+var swiper = new Swiper(".mySwiper_aboutMandala", {
+ 
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,

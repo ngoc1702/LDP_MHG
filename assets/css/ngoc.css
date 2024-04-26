@@ -50,6 +50,10 @@ li{
     fill: black !important; /* Màu mặc định */
   }
 
+.top{
+    top:0 !important;
+  }
+
   .postion{
     position:fixed;
     display:flex;
