@@ -7,7 +7,7 @@ clickables.forEach(function(clickable) {
     clickable.addEventListener('click', function() {
         // Loại bỏ các lớp và thêm lớp cho phần tử được click
         this.classList.remove("bg-white", "border-2", "shadow", "border-neutral-200");
-        this.classList.add("text-white", "whitespace-nowrap", "border-r-8", "border-[#F2CA8F]", "shadow-xl", "bg-[#003A34]");
+        this.classList.add("text-white", "border-r-8", "border-[#F2CA8F]", "shadow-xl", "bg-[#003A34]");
         
         // Thay đổi màu fill của biểu tượng SVG của phần tử được click và phần tử trước đó
         if (activeElement !== null) {
@@ -30,11 +30,21 @@ clickables.forEach(function(clickable) {
         clickables.forEach(function(item) {
             if (item !== clickable) {
                 item.classList.remove("text-white", "whitespace-nowrap", "border-r-8", "border-amber-200", "shadow-xl", "bg-teal-950");
+                // "clickable flex swiper-slide  justify-center px-4 py-4 text-white  rounded-lg border-r-8 border-[#F2CA8F] border-solid shadow-xl bg-[#003A34]"
                 item.classList.add("bg-white", "border-2", "shadow", "border-neutral-200");
             }
         });
     });
 });
+
+// Tự động chuyển đổi nội dung sau mỗi 2 giây
+setInterval(function() {
+    var currentIndex = Array.from(clickables).indexOf(activeElement);
+    var nextIndex = (currentIndex + 1) % clickables.length; // Lấy chỉ số của phần tử kế tiếp
+
+    // Tìm phần tử kế tiếp và kích hoạt sự kiện click
+    clickables[nextIndex].click();
+}, 3000);
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 2,
