@@ -60,7 +60,7 @@
          <li><a class="nav__link  active" onclick="printClickedElement(event)" href="#About_Mandala">About Mandala</a></li> 
         </div>
         <div class="text-pantone md:text-white text-sm leading-6 px-4">
-         <li><a class="nav__link " onclick="printClickedElement(event)" href="#Program_detail">Program detail</a> </li>
+         <li><a class="nav__link " onclick="printClickedElement(event)" href="#program-detail">Program detail</a> </li>
         </div>
         <div class=" text-pantone md:text-white text-sm leading-6 px-4">
           <li><a class="nav__link " onclick="printClickedElement(event)" href="#Internship_content">Internship content</a></li>
@@ -142,7 +142,7 @@ Apply now
     </a>
   </div>
   <div class="text-gray-700  text-base font-medium leading-6 leading-6">
-    <a onclick="closeModalMobile()" href="#Program_detail">
+    <a onclick="closeModalMobile()" href="#program_detail">
       Program detail
     </a>
   </div>
@@ -159,7 +159,7 @@ Apply now
     </a>
   </div>
   <div class="text-gray-700  text-base font-medium leading-6  whitespace-nowrap">
-    <a onclick="closeModalMobile()" href="#FQA">
+    <a onclick="closeModalMobile()" href="#FAQ">
       FQA
     </a>
   </div>
@@ -184,7 +184,7 @@ Apply now
 </div> -->
 
 <!--About Mandala-->
-<section class="">
+<section id="About_Mandala">
   <div class="md:mt-[76px] mt-[0px] px-4 py-12 md:px-16 md:py-20 max-md:px-5">
     <div class="swiper mySwiper_aboutMandala">
       <div class="swiper-wrapper">
@@ -289,12 +289,12 @@ Apply now
 
 <!-- Start about section -->
 <section
-class="flex flex-col overflow-hidden relative justify-center items-center px-16 p-[80px] min-h-[1196px] max-md:px-5 bg-[#003A34]"
+class="flex flex-col overflow-hidden relative justify-center items-center px-16 p-[80px] min-h-[1196px]  bg-[#003A34]"
 id="about-section">
 <div id="wrapper"
   class="flex relative flex-col items-center w-full min-w-[100%] max-w-[1440px] gap-[40px] max-md:max-w-full">
   <h1
-    class="self-center text-5xl font-extrabold text-center text-white leading-7 max-md:max-w-full max-md:text-4xl">
+    class="self-center text-5xl font-extrabold text-center text-white leading-7 max-md:max-w-full md:text-4xl">
     ABOUT MANDALA
   </h1>
   <h5 class="w-[1000px] text-center text-xl text-white not-italic font-medium font-['Inter'] leading-7">
@@ -306,7 +306,7 @@ id="about-section">
     <!-- Start video -->
     <div
       class="flex z-20 w-[832px] h-[468px] justify-center items-center bg-blue-100 overflow-hidden rounded-3xl">
-      <button class="w-[40px] h-[40px] absolute z-10" id="play-vid">
+      <button class="w-10 h-10 absolute z-10" id="play-vid">
         <img src="./assets/icons/play-fill.svg" alt="">
       </button>
       <video src="./assets/video/Film Co. ft. MMN 4K.mp4" poster="./assets/images/thumb.jfif" id="vid"></video>
@@ -315,20 +315,18 @@ id="about-section">
 
     <!-- Border behind video -->
     <div id="border-behind"
-      class="absolute z-0 top-[162px] w-[1080px] h-[338px] rounded-3xl border-2 border-[#F2CA8F]"></div>
+      class="absolute z-0 top-[162px] max-w-[1080px] w-full h-[338px] rounded-3xl border-2 border-[#F2CA8F]">
+    </div>
     <!-- End border behind video -->
 
     <!-- Start gallery -->
-    <div class="flex items-start gap-[40px]" id="gallery">
-      <!-- render here -->
+    <div class="flex items-start gap-10" id="gallery">
+      <!-- Render here -->
     </div>
-
-
-
+    <!-- End gallery -->
   </div>
-  <!-- End gallery -->
 </div>
-</div>
+
 </div>
 </section>
 <!-- End about section -->
@@ -342,22 +340,25 @@ id="about-section">
 
 <!-- Start Option -->
 <div id="option"
-  class="flex gap-5 justify-between p-2 text-2xl font-bold leading-8 bg-zinc-100 rounded-[100px] max-md:flex-wrap">
+  class="flex justify-between p-2 text-2xl font-bold leading-8 bg-zinc-100 rounded-[100px] max-md:flex-wrap">
   <div id="option-1"
-    class="justify-center px-6 py-3 text-white bg-orange-300 rounded-[100px] max-md:px-5 max-md:max-w-full cursor-pointer">
+    class="px-6 py-3 text-white bg-orange-300 rounded-[100px] max-md:px-5 max-md:max-w-full cursor-pointer"
+    onclick="showOption(1)">
     Operation Management Trainee
   </div>
-  <div id="option-1" class="my-auto text-zinc-600 max-md:max-w-full cursor-pointer">
-    General Management for Future Owners 
+  <div id="option-2" class="my-auto py-3 px-6 text-zinc-600 max-md:max-w-full cursor-pointer"
+    onclick="showOption(2)">
+    General Management for Future Owners
   </div>
 </div>
 <!-- End Option -->
 
 
-<div class="flex flex-col h-720px max-w-[1440px] px-7 pb-10 pt-7 rounded-3xl border-2 border-[#D2A97D]">
+<div id="program-contain"
+  class="flex flex-col max-h-[672px] max-w-[1440px] px-7 pb-10 pt-7 rounded-3xl border-2 border-[#D2A97D] overflow-y-auto ">
 
   <!-- Start selected option -->
-  <div id="wrapper" class="flex gap-6 self-stretch items-start">
+  <div id="option-selected-1" class="flex gap-6 self-stretch items-start">
     <div class="flex flex-col grow p-4 mx-auto w-full rounded-2xl bg-zinc-100 max-md:mt-6">
       <div class="text-2xl font-extrabold leading-8 text-neutral-800">
         OM TRAINEE
@@ -366,8 +367,7 @@ id="about-section">
         Operation Management Trainee
       </div>
       <div class="flex gap-3 self-start mt-10">
-        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
-          class="shrink-0 my-auto w-12 aspect-square" />
+        <img loading="lazy" src="./assets/icons/timer-line 2.svg" class="shrink-0 my-auto w-12 aspect-square" />
         <div class="flex flex-col">
           <div class="text-sm font-semibold leading-6 text-black">Duration</div>
           <div class="mt-1 text-xl font-extrabold leading-7 text-neutral-800">
@@ -404,7 +404,7 @@ id="about-section">
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
         <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
-        <div class="flex-1">City tour & Local immersion activities</div>
+<div class="flex-1">City tour & Local immersion activities</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
         <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
@@ -454,10 +454,8 @@ id="about-section">
         Operation Management Trainee
       </div>
       <div class="flex gap-3 self-start mt-10">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/d9919a20235234923f1ab923953a988276a14ed1efd5de29dcf777a12dd43c30?apiKey=2d6f9cce25ff4601a22357321fee874e&"
-          class="shrink-0 my-auto w-12 aspect-square" />
-        <div class="flex flex-col">
+        <img loading="lazy" src="./assets/icons/timer-line 2.svg" class="shrink-0 my-auto w-12 aspect-square" />
+<div class="flex flex-col">
           <div class="text-sm font-semibold leading-6 text-black">Duration</div>
           <div class="mt-1 text-xl font-extrabold leading-7 text-neutral-800">
             8 Weeks
@@ -466,16 +464,14 @@ id="about-section">
       </div>
       <div class="shrink-0 mt-10 h-px bg-orange-300 border-2 border-orange-300 border-solid"></div>
       <div class="flex gap-2 mt-10 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">
           Be empowered and have the opportunity to experience hospitality works.
         </div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">
           Two days one night (2D1N) Halong bay tour (Hanoi), OR Mekong delta tour
@@ -483,62 +479,52 @@ id="about-section">
         </div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">Pre-departure guide & on-site orientations</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">Airport transfer (pick-up & see-off)</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">City tour & Local immersion activities</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">Stay at a 5 star hotel</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">Daily meal</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
-          class="shrink-0 my-auto w-4 aspect-square" />
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
+class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">Local SIM card</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">24/7 support</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">On-going & Final program evaluation</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">Allowance and Job offers after your internship</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/b373df3f9ec00ae37b000727d6f8898a7285fa716e0e6c893c088fd0743d8321?apiKey=2d6f9cce25ff4601a22357321fee874e&"
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">
           5 days before the end of the program: 3D2N Sapa tour (North Area) or 3D2N
@@ -570,7 +556,7 @@ id="about-section">
         <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
         <div class="flex-1">
-          Be empowered and have the opportunity to experience hospitality works.
+Be empowered and have the opportunity to experience hospitality works.
         </div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
@@ -619,7 +605,7 @@ id="about-section">
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
         <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
           class="shrink-0 my-auto w-4 aspect-square" />
-        <div class="flex-1">On-going & Final program evaluation</div>
+<div class="flex-1">On-going & Final program evaluation</div>
       </div>
       <div class="flex gap-2 mt-4 text-sm font-semibold leading-6 text-neutral-800">
         <img loading="lazy" src="./assets/icons/checkbox-circle-fill.svg"
@@ -635,6 +621,227 @@ id="about-section">
         </div>
       </div>
     </div>
+  </div>
+  <div id="option-selected-2" class="flex gap-6 self-stretch items-start hidden">
+    <div
+      class="flex rounded-2xl bg-[#0C4730] overflow-hidden relative flex-col grow p-4 text-white shadow-lg max-md:mt-6 max-md:max-w-full">
+      <!-- <img loading="lazy"
+        srcset=""
+        class="object-cover absolute inset-0 size-full" /> -->
+      <div class="relative text-2xl font-extrabold leading-8 max-md:max-w-full">
+        GM TRAINEE FOR FUTURE OWNERS
+      </div>
+      <div class="relative mt-1 text-base font-bold leading-6 text-amber-200 underline max-md:max-w-full">
+        General Management for Future Owners
+      </div>
+      <div class="flex relative gap-3 self-start mt-10">
+        <img loading="lazy" src="./assets/icons/timer-line.svg" class="shrink-0 my-auto w-12 aspect-square" />
+        <div class="flex flex-col">
+          <div class="text-sm font-semibold leading-6">Duration</div>
+          <div class="mt-1 text-xl font-extrabold leading-7">8 Weeks</div>
+        </div>
+      </div>
+      <div
+        class="relative shrink-0 mt-10 h-px bg-amber-200 border-2 border-amber-200 border-solid max-md:max-w-full">
+      </div>
+      <div class="flex relative gap-2 mt-10 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Be empowered and have the opportunity to experience hotel management at
+          Mandala Group: Bac Ninh, Kim Boi, Mui Ne.
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Gain
+<span class="font-extrabold">2 weeks</span>
+          of internship at the Headquarters of Apec Group, rotating through
+          Executive Departments each week and
+          <span class="font-extrabold">especially</span>
+          , will be trained directly by the Chairman.
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          <span class="font-extrabold">Explore Vietnam tours</span>
+          : 2D1N Halong bay tour, Mekong delta tour, 3D1N Nha Trang - Phu Yen tour,
+          3D1N Sapa tour.
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Pre-departure guide & on-site orientations
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Airport transfer (pick-up & see-off)
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          City tour & Local immersion activities
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Stay at a 5 star hotel: 01 person/room
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">Daily meal</div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">Local SIM card</div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">24/7 support</div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          On-going & Final program evaluation
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Allowance and Job offers after your internship
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex rounded-2xl bg-[#0C4730] overflow-hidden relative flex-col grow p-4 text-white shadow-lg max-md:mt-6 max-md:max-w-full">
+      <!-- <img loading="lazy"
+        srcset=""
+        class="object-cover absolute inset-0 size-full" /> -->
+      <div class="relative text-2xl font-extrabold leading-8 max-md:max-w-full">
+        GM TRAINEE FOR FUTURE OWNERS
+      </div>
+      <div class="relative mt-1 text-base font-bold leading-6 text-amber-200 underline max-md:max-w-full">
+        General Management for Future Owners
+      </div>
+      <div class="flex relative gap-3 self-start mt-10">
+        <img loading="lazy" src="./assets/icons/timer-line.svg" class="shrink-0 my-auto w-12 aspect-square" />
+        <div class="flex flex-col">
+          <div class="text-sm font-semibold leading-6">Duration</div>
+          <div class="mt-1 text-xl font-extrabold leading-7">16 Weeks</div>
+        </div>
+      </div>
+      <div
+        class="relative shrink-0 mt-10 h-px bg-amber-200 border-2 border-amber-200 border-solid max-md:max-w-full">
+      </div>
+      <div class="flex relative gap-2 mt-10 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Be empowered and have the opportunity to experience hotel management at
+          Mandala Group: Bac Ninh, Kim Boi, Mui Ne.
+        </div>
+      </div>
+<div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Gain
+          <span class="font-extrabold">4 weeks</span>
+          of internship at the Headquarters of Apec Group, rotating through
+          Executive Departments each week and
+          <span class="font-extrabold">especially</span>
+          , will be trained directly by the Chairman.
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          <span class="font-extrabold">Explore Vietnam tours</span>
+          : 2D1N Halong bay tour, Mekong delta tour, 3D1N Nha Trang - Phu Yen tour,
+          3D1N Sapa tour.
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Pre-departure guide & on-site orientations
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Airport transfer (pick-up & see-off)
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          City tour & Local immersion activities
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Stay at a 5 star hotel: 01 person/room
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">Daily meal</div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">Local SIM card</div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">24/7 support</div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          On-going & Final program evaluation
+        </div>
+      </div>
+      <div class="flex relative gap-2 mt-4 text-sm font-semibold leading-6 max-md:flex-wrap">
+        <img loading="lazy" src="./assets/icons/checkbox-circle-fill-2.svg"
+          class="shrink-0 my-auto w-4 aspect-square" />
+        <div class="flex-1 max-md:max-w-full">
+          Allowance and Job offers after your internship
+        </div>
+      </div>
+    </div>
+
+
   </div>
   <!-- End selected option -->
 
@@ -662,7 +869,7 @@ id="about-section">
             applicant withdraws the program, after Mandala placement is confirmed, the cancellation fee is $US
             5</li>
           <li>
-            If the applicant withdraws the program by the commencing date, full program fee is applied and only
+If the applicant withdraws the program by the commencing date, full program fee is applied and only
             refund 40% of the paid fee.
           </li>
         </ul>
@@ -674,7 +881,7 @@ id="about-section">
 
 <!-- Apply button -->
 <div id="btn-apply"
-  class="justify-center px-8 py-4 text-2xl font-bold leading-8 text-white bg-orange-300 shadow-lg rounded-[100px] cursor-pointer">
+  class="justify-center px-8 py-4 text-2xl font-bold leading-8 text-white bg-orange-300 shadow-lg rounded-[100px] cursor-pointer hover:bg-amber-200">
   Apply now
 </div>
 
@@ -684,13 +891,13 @@ id="about-section">
 <!-- End program detail -->
 
 <!-- Start light box modal -->
-<div id="light-box-modal"></div>
+<div id="wrapper-lightbox"></div>
 <!-- End light box modal -->
 
 
  <!-- intenship content -->
 
- <section class="bg-zinc-100">
+ <section id="Internship_content" class="bg-zinc-100">
   <div class="max-w-7xl mx-auto">
     <div class="intership flex flex-col  items-center px-16 py-20  max-md:px-5">
       <div
@@ -1263,8 +1470,8 @@ id="about-section">
 </section>
 
 
-
-<section class="bg-[#003A34]">
+<!-- how to word -->
+<section id="How_to_work" class="bg-[#003A34]">
   <div class="max-w-7xl mx-auto">
     <div class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 min-h-[758px] max-md:px-5 ">
       <div
@@ -1481,7 +1688,7 @@ id="about-section">
       
       </div>
   </div>
-</section><!-- how to word -->
+</section>
 
 <!-- <div class="swiper mySwiper1 swiper-initialized swiper-horizontal swiper-backface-hidden mt-10">
 <div >
@@ -1514,7 +1721,7 @@ id="about-section">
 
 
 <!--FQA-->
-<section>
+<section id="FAQ">
   <div class="flex flex-col px-4 py-12 md:px-16 md:py-20 text-neutral-800 max-md:px-5">
     <div
       class="self-center text-5xl font-extrabold text-center leading-[72px] max-md:text-4xl"

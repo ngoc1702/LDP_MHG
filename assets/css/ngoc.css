@@ -35,7 +35,7 @@ li{
 }
 
 .active{
-    color:#F2CA8F;
+    color:#F2CA8F !important;
     padding-bottom: 3px !important;
     border-bottom: 2px solid #F2CA8F !important;
 }
