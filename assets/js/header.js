@@ -5,11 +5,12 @@ window.addEventListener('scroll', function() {
 
   var header = document.getElementById('header');
   var menuLinks = document.querySelectorAll('.nav__link');
+  var menuLinks2 = document.querySelector('.nav__link2');
   var svgElement1 = document.querySelector('.open_menu1');
   var svgElement2 = document.querySelector('.open_menu2');
   var svgElement3 = document.querySelector('.open_menu3');
   if (window.scrollY > 80) {
-    console.log("SCROLL")
+    // console.log("SCROLL")
     header.classList.add('bg-white');
     header.classList.add('top');
     svgElement1.setAttribute('fill', 'black');
@@ -17,7 +18,9 @@ window.addEventListener('scroll', function() {
     svgElement3.setAttribute('fill', 'black');
     menuLinks.forEach(function(link) {
       if (!link.classList.contains('active')) {
+        // console.log(menuLinks2)
         link.classList.add('text-black');
+        menuLinks2.classList.add('text-black')
     }
   });
     
@@ -29,9 +32,32 @@ window.addEventListener('scroll', function() {
     menuLinks.forEach(function(link) {
       if (!link.classList.contains('active')) {
         link.classList.remove('text-black');
+        menuLinks2.classList.remove('text-black')
     }
   });
   }
+});
+
+
+ // Lắng nghe sự kiện cuộn trang
+ window.addEventListener('scroll', function () {
+  // Lấy tất cả các menu link và các section
+  var menuLinks = document.querySelectorAll('.nav__link');
+  var sections = document.querySelectorAll('section');
+
+  // Lặp qua từng section và kiểm tra vị trí cuộn
+  sections.forEach(function (section, index) {
+      var sectionTop = section.offsetTop;
+      var sectionHeight = section.clientHeight;
+
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          // Nếu section hiện tại đang được cuộn đến, kích hoạt menu link tương ứng
+          menuLinks.forEach(function (link) {
+              link.classList.remove('active');
+          });
+          menuLinks[index].classList.add('active');
+      }
+  });
 });
 
 
@@ -101,7 +127,6 @@ function toggleContent(group) {
       closeBtn.classList.add('hidden');
   }
 }
-
 
 
 
