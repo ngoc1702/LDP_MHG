@@ -1,3 +1,18 @@
+input{
+    border:1px solid white;
+} 
+input:focus {
+    border:1px solid #D2A97D !important; /* Màu border khi được focus */
+  }
+  
+  textarea:focus{
+        border:1px solid #D2A97D !important;
+  }
+
+
+  select:focus {
+    border:1px solid #D2A97D !important; /* Màu border khi được focus */
+  }
 .bg-white {
     background-color: white !important;
   }
@@ -54,10 +69,55 @@ li{
     top:0 !important;
   }
 
-  .postion{
-    position:fixed;
-    display:flex;
-    bottom:20;
-    right:5;
+  .position-btn{
+    position: fixed;
+    bottom: 80px; /* Khoảng cách từ đáy màn hình */
+    right: 40px; /* Khoảng cách từ phải màn hình */
+    z-index:999;
+  }
 
+
+  .overlay {
+    display: none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     justify-content: center;
+     align-items: center;
+     margin-left:auto;
+     margin-right:auto;
+     z-index:99999;
+}
+  .popup{
+    position: absolute;
+    top: 50%; /* Đưa phần tử lên 50% của phần tử chứa */
+    left: 50%; /* Đưa phần tử sang 50% của phần tử chứa */
+    transform: translate(-50%, -50%); /* Dịch chuyển phần tử ngược lại 50% của chiều rộng và chiều cao của nó */
+    width: auto; /* Có thể thay đổi tùy thuộc vào nhu cầu */
+    height: auto; /* Có thể thay đổi tùy thuộc vào nhu cầu */
+  }
+
+  
+
+
+  @media only screen and (max-width: 767px) {
+    .popup{
+        position: fixed;
+        top: 50%;
+        right: 50%;
+        left: 50%;
+       
+        transform: translate(-50%, -50%);
+        width: 90%;
+      }
+    
+      .position-btn{
+        position: fixed;
+        bottom: 100px; /* Khoảng cách từ đáy màn hình */
+        right: 20px; /* Khoảng cách từ phải màn hình */
+        z-index:999;
+      }
   }

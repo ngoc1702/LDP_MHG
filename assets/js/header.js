@@ -1,3 +1,5 @@
+
+
 function isDesktop() {
   return window.innerWidth > 768; // Đây là một giả định về kích thước của máy tính để bàn
 }
@@ -58,6 +60,21 @@ window.addEventListener('scroll', function() {
           menuLinks[index].classList.add('active');
       }
   });
+});
+
+// Hiển thị popup sau 3 giây
+setTimeout(function () {
+  document.getElementById("popup-overlay").style.display = "flex";
+}, 3000);
+
+// Bắt sự kiện click cho nút đóng
+document.getElementById("close_popup").addEventListener("click", function (event) {
+  // Ngăn chặn hành vi mặc định của sự kiện click (tránh việc tải lại trang)
+  event.preventDefault();
+  
+  // Ẩn popup
+  document.getElementById("popup-overlay").style.display = "none";
+  document.getElementById("popup").classList.add('hidden');
 });
 
 
@@ -128,6 +145,13 @@ function toggleContent(group) {
   }
 }
 
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Optional smooth scrolling behavior
+  });
+}
 
 
 
