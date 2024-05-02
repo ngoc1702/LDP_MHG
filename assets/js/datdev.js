@@ -2,44 +2,53 @@ const data = [
   {
     id: 1,
     title: "Hạ Long",
-    thumbnail_src: "./assets/images/halong.png",
+    thumbnail_src: "./assets/images/halong3.jfif",
     gallery: [
-      "./assets/images/nhatrang.png",
-      "./assets/images/mientay.png",
-      "./assets/images/sapa.png",
-      "./assets/images/mientay.png",
+      "./assets/images/halong1.jfif",
+      "./assets/images/halong2.jfif",
+      "./assets/images/halong3.jfif",
+      "./assets/images/halong4.jfif",
+      "./assets/images/halong5.jfif",
+      "./assets/images/halong6.jfif",
     ],
   },
   {
     id: 2,
     title: "Sapa",
-    thumbnail_src: "./assets/images/sapa.png",
+    thumbnail_src: "./assets/images/sapa_thumb.jfif",
     gallery: [
-      "./assets/images/sapa.png",
-      "./assets/images/mientay.png",
-      "./assets/images/halong.png",
+      "./assets/images/sapa_thumb.jfif",
+      "./assets/images/halong2.jfif",
+      "./assets/images/halong3.jfif",
+      "./assets/images/halong4.jfif",
+      "./assets/images/halong5.jfif",
+      "./assets/images/halong6.jfif",
     ],
   },
   {
     id: 3,
     title: "Nha Trang",
-    thumbnail_src: "./assets/images/nhatrang.png",
+    thumbnail_src: "./assets/images/nhatrang_thumb.png",
     gallery: [
-      "./assets/images/mientay.png",
-      "./assets/images/mientay.png",
-      "./assets/images/sapa.png",
-      "./assets/images/mientay.png",
+      "./assets/images/nhatrang_thumb.png",
+      "./assets/images/halong2.jfif",
+      "./assets/images/halong3.jfif",
+      "./assets/images/halong4.jfif",
+      "./assets/images/halong5.jfif",
+      "./assets/images/halong6.jfif",
     ],
   },
   {
     id: 4,
     title: "Miền Tây",
-    thumbnail_src: "./assets/images/mientay.png",
+    thumbnail_src: "./assets/images/mientay_thumb.png",
     gallery: [
-      "./assets/images/halong.png",
-      "./assets/images/mientay.png",
-      "./assets/images/sapa.png",
-      "./assets/images/mientay.png",
+      "./assets/images/mientay_thumb.png",
+      "./assets/images/halong2.jfif",
+      "./assets/images/halong3.jfif",
+      "./assets/images/halong4.jfif",
+      "./assets/images/halong5.jfif",
+      "./assets/images/halong6.jfif",
     ],
   },
 ];
@@ -97,7 +106,7 @@ async function lightBox(item) {
   const smImgContain = item.gallery.map((img, index) => {
     return `<img loading="lazy" srcset="${img}" data-index=${index} class="smImg ${
       index === currentIndex ? "selected" : ""
-    } shrink-0 p-[2px] md:p-1 max-w-24 md:max-w-40 aspect-video cursor-pointer rounded-lg object-cover" />`;
+    } shrink-0 p-[2px] md:p-1 max-w-40 aspect-video cursor-pointer rounded-lg object-cover" />`;
   });
   document.getElementById("smImgContain").innerHTML = await smImgContain
     .join("")
@@ -116,6 +125,11 @@ async function lightBox(item) {
     img.addEventListener("click", (e) => {
       smImgs.forEach((img) => img.classList.remove("selected"));
       e.target.classList.add("selected");
+      e.target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      })
       setImage(e.target);
       currentIndex = e.target.getAttribute("data-index"); //New index when you click slide
     })
@@ -126,14 +140,18 @@ async function lightBox(item) {
 
   function pushSlide(n) {
     smImgs[currentIndex].classList.remove("selected");
-    currentIndex += n;
+    currentIndex = parseInt(currentIndex) + parseInt(n);
     if (currentIndex < 0) {
       currentIndex = smImgs.length - 1;
     } else if (currentIndex > smImgs.length - 1) {
       currentIndex = 0;
     }
-    console.log(currentIndex);
     smImgs[currentIndex].classList.add("selected");
+    smImgs[currentIndex].scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
     setImage(smImgs[currentIndex]);
   }
 
@@ -148,7 +166,7 @@ function openLightBox(id) {
   data.forEach((item) => {
     if (item.id === id) {
       lightBox(item);
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden"; //no scroll when lightbox open
     }
   });
 }
@@ -156,7 +174,7 @@ function openLightBox(id) {
 // show/hide lightbox
 function closeLightBox() {
   document.getElementById("wrapper-lightbox").classList.add("hidden");
-  document.body.style.overflow = 'auto';
+  document.body.style.overflow = "auto";
 }
 
 //SHOW OPTION

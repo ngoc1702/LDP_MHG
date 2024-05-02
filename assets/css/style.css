@@ -1,2 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+   scroll-behavior: smooth;
+}
+
+@media screen and (min-width: 768px) {
+   ::-webkit-scrollbar-thumb{
+      border-radius: 100px;
+      background-color: #B6B6B6;
+   }
+
+   #program-contain::-webkit-scrollbar{
+      width: 12px;
+   }
+
+   #smImgContain::-webkit-scrollbar{
+      height: 8px;
+   }
+}
