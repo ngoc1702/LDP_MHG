@@ -16,7 +16,9 @@
     
     <!-- Swiper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <body>
     <main>
       <!--POPUP-->
       <div id="popup-overlay" class="overlay h-screen hidden ">
@@ -47,46 +49,50 @@
   <div class="mt-2 text-sm leading-6 text-zinc-600">
     Contact us now to get free advice from experts.
   </div>
-  <div class="mt-6">
+  <div class="text-black mt-6">
     Full name
     <span class="text-red-500">*</span>
   </div>
-  <input 
+  <input id="name_popup"
+    style="outline: none;"
   placeholder="Nguyen Văn A"
     class="justify-center items-start px-4 py-2.5 mt-2 font-medium bg-white rounded-md border border-solid border-zinc-600 text-neutral-800"
   >
-  
 </input>
-  <div class="mt-6">
+<p id="errorName_popup" class="text-red hidden mt-2 pl-1">Vui lòng nhập Tên đầy đủ</p>
+  <div class="text-black mt-6">
     Phone number
     <span class="text-red-500">*</span>
   </div>
-  <input placeholder=" +84 - 123 456 78"
+  <input id="phone_popup"
+  placeholder=" +84 - 123 456 78"  style="outline: none;"
     class="justify-center items-start px-4 py-2.5 mt-2 text-orange-300 bg-white rounded-md border border-zinc-600 border-solid"
   >
-</iput>
-  <div class="mt-6">
+</input>
+<p id="errorPhone_popup" class="text-red hidden mt-2">Vui lòng nhập SĐT hợp lệ</p>
+  <div class="text-black mt-6">
     Email
     <span class="text-red-500">*</span>
   </div>
-  <input
-  placeholder="yourname@gmail.com"
+  <input id="email_popup"
+  placeholder="yourname@gmail.com"  style="outline: none;"
     class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-600"
   >
-    
 </input>
-  <div
+<p id="errorEmail_popup" class="text-red hidden mt-2">Vui lòng nhập Email hợp lệ</p>
+  <button type="submit"
     class="btn flex justify-center items-center px-8 py-2.5 mt-6 text-white whitespace-nowrap bg-primary2 rounded-lg border border-orange-300 border-solid shadow"
   >
-    <button class="flex gap-3">
+    <div 
+    class="flex gap-3">
       <img
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/8d2308306b1fb750312fdb0c08d44a970acb12873b046c3f04934634beb63168?"
         class="shrink-0 my-auto w-5 aspect-square"
       />
       <div>Send</div>
-    </button>
-  </div>
+</div>
+  </button>
       </form>
     </div>
 
@@ -149,7 +155,7 @@
         class="hidden md:flex justify-end z-50 items-stretch "
       >
         <div   class="text-pantone md:text-white text-sm leading-6 grow whitespace-nowrap px-4">
-         <li><a class="nav__link  active" onclick="printClickedElement(event)" href="#About_Mandala">About Mandala</a></li> 
+         <li><a class="nav__link nav__link3 active" onclick="printClickedElement(event)" href="#About_Mandala">About Mandala</a></li> 
         </div>
         <div class="text-pantone md:text-white text-sm leading-6 px-4">
          <li><a class="nav__link " onclick="printClickedElement(event)" href="#Program-detail">Program detail</a> </li>
@@ -178,7 +184,7 @@
 <div
 class="items-center justify-between md:justify-end md:pl-0 pl-10 flex"
 >
-<a href="aplly.html">
+<a onclick="openApply()" >
 <button
 class="btn bg-primary2 justify-center px-4 py-2 text-base font-semibold leading-6 text-white shadow-lg rounded-[100px]"
 >
@@ -261,8 +267,9 @@ Apply now
   </nav>
 </header>
 
+<div id="container_content">
 <!--About Mandala-->
-<section id="About_Mandala">
+<section id="About_Mandala" class="section_content">
   <div class="md:mt-[76px] mt-[0px] px-4 py-12 md:px-16 md:py-20 max-md:px-5">
     <div class="swiper mySwiper_aboutMandala">
       <div class="swiper-wrapper">
@@ -366,8 +373,8 @@ Apply now
     
 
  <!-- Start about section -->
- <section id="about-section"
- class="flex flex-col font-[Montserrat] overflow-hidden relative justify-center items-center px-4 md:px-0 p-[80px] bg-[#003A34] w-full">
+ <section id="about-section"  
+ class="section_content flex flex-col font-[Montserrat] overflow-hidden relative justify-center items-center px-4 md:px-0 p-[80px] bg-[#003A34] w-full">
  <div id="wrapper" class="flex relative flex-col items-center w-full max-w-[1440px] md:gap-10 gap-6 md:max-w-full">
    <h1
      class="self-center text-[32px] leading-[48px] md:text-5xl font-extrabold text-center text-white md:leading-7 md:max-w-full md:text-4xl">
@@ -403,14 +410,12 @@ Apply now
      <!-- End gallery -->
    </div>
  </div>
-
- </div>
 </section>
 <!-- End about section -->
 
 <!-- Start program detail -->
-<section id="program-detail"
- class="flex flex-col md:max-w-[1264px] md:min-h-[672px] font-[Montserrat] mx-auto overflow-hidden relative md:justify-center md:items-center px-4 md:px-0 p-[80px] w-full md:gap-10 gap-6">
+<section id="Program-detail" 
+ class="section_content flex flex-col md:max-w-[1264px] md:min-h-[672px] font-[Montserrat] mx-auto overflow-hidden relative md:justify-center md:items-center px-4 md:px-0 p-[80px] w-full md:gap-10 gap-6">
  <h1 id="title-program-detail"
    class="self-center text-[32px] leading-[48px] md:text-5xl font-extrabold text-center md:leading-7 md:max-w-full md:text-4xl">
    PROGRAM DETAIL
@@ -1026,7 +1031,7 @@ Apply now
 
   <!-- intenship content -->
 
-  <section class="bg-zinc-100">
+  <section id="Internship_content" class="section_content bg-zinc-100">
     <div class=" max-w-7xl mx-auto">
       <div class="intership flex flex-col  items-center px-16 py-20  max-md:px-5">
         <div
@@ -1594,13 +1599,11 @@ Apply now
           </div>
         </div>
       </div>
-    </div>
-    
   </section>
   
   <!-- how to word -->
 
-  <section class="bg-[#003A34]">
+  <section id="How_to_work" class="section_content bg-[#003A34]">
     <div class="max-w-7xl mx-auto">
       <div class="flex overflow-hidden relative flex-col justify-center items-center px-16 py-20 min-h-[758px] max-md:px-5 ">
         <div
@@ -1820,10 +1823,9 @@ Apply now
   </section>
    
 
-
     <!--FQA-->
-    <section id="FAQ">
-      <div class="flex flex-col px-4 py-12 md:px-16 md:py-20 text-neutral-800 max-md:px-5">
+    <section id="FAQ" class="section_content">
+      <div class="flex flex-col px-4 py-12 md:px-16 md:py-20 text-neutral-800 max-md:px-5 ">
         <div class="self-center text-5xl font-extrabold text-center leading-[72px] max-md:text-4xl">
           FAQ
         </div>
@@ -1831,8 +1833,8 @@ Apply now
           class="flex justify-center items-center px-16 mt-6 md:mt-10 text-[16px] md:text-xl font-bold leading-6 md:leading-7 max-md:px-0 max-md:max-w-full">
           <div class="flex flex-col w-full max-w-[1064px] max-md:max-w-full">
             <div class="toggle-group">
-              <div class="flex gap-5 text-black max-md:flex-wrap">
-                <div class=" title flex-1 my-auto max-md:max-w-full">
+              <div class="flex justify-between gap-5 text-black max-md:flex-wrap">
+                <div onclick="toggleContent('toggle-group-1')" class=" title flex my-auto max-md:max-w-full">
                   1.How do I know if Mandala Group is a legitimate company?
                 </div>
 
@@ -1859,8 +1861,8 @@ Apply now
             </div>
             <div class="shrink-0 mt-6 md:mt-10 h-0.5 bg-amber-200 max-md:max-w-full"></div>
             <div class="toggle-group">
-              <div class="flex gap-5 mt-6 md:mt-10 max-md:flex-wrap">
-                <div class="title flex-1 my-auto max-md:max-w-full">
+              <div class="flex justify-between gap-5 mt-6 md:mt-10 max-md:flex-wrap">
+                <div onclick="toggleContent('toggle-group-2')" class="title flex my-auto max-md:max-w-full">
                   2.Do I require a visa to travel to Vietnam?
                 </div>
                 <button onclick="toggleContent('toggle-group-2')" class="open-btn">
@@ -1883,8 +1885,8 @@ Apply now
             </div>
             <div class="shrink-0 mt-6 md:mt-10 h-0.5 bg-amber-200 max-md:max-w-full"></div>
             <div class="toggle-group">
-              <div class="flex gap-5 mt-6 md:mt-10 max-md:flex-wrap">
-                <div class="title flex-1 my-auto max-md:max-w-full">
+              <div class="flex justify-between gap-5 mt-6 md:mt-10 max-md:flex-wrap">
+                <div onclick="toggleContent('toggle-group-3')" class="title flex my-auto max-md:max-w-full">
                   3.I have never been abroad. Why should I go then?
                 </div>
                 <button onclick="toggleContent('toggle-group-3')" class="open-btn">
@@ -1910,8 +1912,8 @@ Apply now
             </div>
             <div class="shrink-0 mt-6 md:mt-10 h-0.5 bg-amber-200 max-md:max-w-full"></div>
             <div class="toggle-group">
-              <div class="flex gap-5 mt-6 md:mt-10 max-md:flex-wrap">
-                <div class="title flex-1 my-auto max-md:max-w-full">
+              <div class="flex justify-between gap-5 mt-6 md:mt-10 max-md:flex-wrap">
+                <div onclick="toggleContent('toggle-group-4')" class="title flex my-auto max-md:max-w-full">
                   4.Do I need to be able to speak the local language?
                 </div>
                 <button onclick="toggleContent('toggle-group-4')" class="open-btn">
@@ -1934,8 +1936,8 @@ Apply now
             </div>
             <div class="shrink-0 mt-6 md:mt-10 h-0.5 bg-amber-200 max-md:max-w-full"></div>
             <div class="toggle-group">
-              <div class="flex gap-5 mt-6 md:mt-10 max-md:flex-wrap">
-                <div class="title flex-1 my-auto max-md:max-w-full">
+              <div class="flex justify-between gap-5 mt-6 md:mt-10 max-md:flex-wrap">
+                <div onclick="toggleContent('toggle-group-5')" class="title flex my-auto max-md:max-w-full">
                   5.I am not outstanding and am not sure whether I qualified ?
                 </div>
                 <button onclick="toggleContent('toggle-group-5')" class="open-btn">
@@ -1959,12 +1961,291 @@ Apply now
           </div>
         </div>
       </div>
-        <div class="shrink-0 mt-6 md:mt-10 h-0.5 bg-amber-200 max-md:max-w-full"></div>
+</section>
+</div>
+<!--FORM APPLY-->
+<div id="apply" class="hidden justify-center items-center px-16 py-20 max-md:px-5">
+  <form class="flex flex-col w-full max-w-[1120px] max-md:max-w-full mt-[20px] md:mt-[40px]">
+    <div
+      class="self-center text-5xl font-extrabold text-center text-orange-300 leading-[72px] max-md:max-w-full max-md:text-4xl"
+    >
+      MHG MT APPLICATION FORM
+    </div>
+    <div
+      class="mt-6 md:mt-10 text-xl font-medium leading-7 text-neutral-800 max-md:max-w-full"
+    >
+      Welcome to The Mandala Management Trainee Program!
+    </div>
+    <div
+      class="mt-6 text-xl font-medium leading-7 text-neutral-800 max-md:max-w-full"
+    >
+      Please fill out the form with your resume. Your letter of intent and
+      university transcript can be sent later.
+    </div>
+    <div
+      class="mt-6 text-xl font-medium leading-7  max-md:max-w-full"
+    >
+      Our coordinator will get back to you within 24-48 hours after your
+      submission. If you do not hear from us or need immediate assistance,
+      please email us at 
+      <span>
+      <a href="mtprogram@mandalahotels.com.vn" class="text-orange-300 underline">
+        mtprogram@mandalahotels.com.vn
+      </a>
+  </span>
+    </div>
+    <div
+      class="flex flex-col py-10 mt-6 md:mt-10 rounded-lg bg-zinc-100 max-md:max-w-full"
+    >
+      <div
+        class="px-3 md:px-0 md:mx-16 text-3xl font-bold leading-10 text-orange-300 max-md:mr0 max-md:max-w-full"
+      >
+        Personal infomation
       </div>
+      <div class="justify-center px-16 mt-4 md:mt-6 max-md:px-3 max-md:max-w-full">
+        <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+          <div class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+            <div
+              class="flex flex-col grow text-base font-semibold leading-6 text-red-500 max-md:mt-0 max-md:max-w-full"
+            >
+              <div class="max-md:max-w-full text-black">
+                First name
+                <span class="text-red-500">*</span>
+              </div>
+              <input placeholder=" Enter"  style="outline: none;"
+                class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border-1 border-solid border-zinc-600 text-zinc-400 max-md:pr-5 max-md:max-w-full"
+              >
+              </input>
+              <div class="mt-6 max-md:max-w-full text-black">
+                Date of birth
+                <span class="text-red-500">*</span>
+              </div>
+              <input type="date"  id="datepicker" style="outline: none;"
+                placeholder="Select"
+                class="flex gap-2 px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap"
+              >
+          </input>
+              <div class="mt-6 max-md:max-w-full text-black">
+                City/ State
+                <span class="text-red-500">*</span>
+              </div>
+              <input placeholder=" Enter" style="outline: none;"
+                class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:pr-5 max-md:max-w-full"
+              >
+              </input>
+              <div class="mt-6 max-md:max-w-full text-black">
+                Email
+                <span class="text-red-500">*</span>
+              </div>
+              <input placeholder=" Enter" style="outline: none;"
+                class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:pr-5 max-md:max-w-full"
+              >
+              </input>
+            </div>
+          </div>
+          <div class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+            <div
+              class="flex flex-col grow text-base font-semibold leading-6 text-red-500 max-md:mt-10 max-md:max-w-full"
+            >
+              <div class="max-md:max-w-full text-black">
+                Last name
+                <span class="text-red-500">*</span>
+              </div>
+              <input placeholder=" Enter" style="outline: none;"
+                class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:pr-5 max-md:max-w-full"
+              >
+              </input>
+              <div class="mt-6 max-md:max-w-full text-black">
+                  Gender
+                  <span class="text-red-500">*</span>
+                </div>
+                <select style="outline: none;" class="flex gap-2 px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
+
+                    <option value="" selected disabled>Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+
+                
+              <div class="mt-6 max-md:max-w-full text-black">
+                Nationality
+                <span class="text-red-500">*</span>
+              </div>
+              <input placeholder=" Enter" style="outline: none;"
+                class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:pr-5 max-md:max-w-full"
+              >
+              </input>
+              <div class="mt-6 max-md:max-w-full text-black">
+                Phone number
+                <span class="text-red-500">*</span>
+              </div>
+              <input placeholder=" Enter" style="outline: none;"
+              class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:pr-5 max-md:max-w-full"
+            >
+            </input>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="md:mx-16 px-3 md:px-0">
+      <div
+        class="  mt-6 text-base font-semibold leading-6 text-neutral-800 max-md:mr-2.5 max-md:max-w-full"
+      >
+        Facebook / Instagram / Linkedin profile link
+      </div>
+      <input placeholder="Enter" style="outline: none;"
+        class="justify-center items-start self-center px-4 py-2.5 mt-2 max-w-full text-base font-medium leading-6 whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 w-[992px] max-md:pr-5"
+      >
+  </input>
     </div>
   </div>
-  
-</section>
+    <div
+      class="flex flex-col py-10 mt-10 text-base leading-6 rounded-lg bg-zinc-100 max-md:max-w-full"
+    >
+      <div
+        class="md:mx-16 px-3 md:px-0 text-3xl font-bold text-orange-300 max-md:mr-2.5 max-md:max-w-full"
+      >
+        Program infomation
+      </div>
+      <div
+        class="flex flex-col md:grid md:grid-cols-2 px-16 gap-5 justify-center  mt-6 max-md:flex-wrap max-md:px-5"
+      >
+        <div class="flex flex-col max-md:max-w-full">
+          <div class="font-semibold text-red-500 max-md:max-w-full text-black">
+            Your Institution (School / University / College)
+            <span class="text-red-500">*</span>
+          </div>
+          <input placeholder=" Enter" style="outline: none;"
+            class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:pr-5 max-md:max-w-full"
+          >
+           
+      </input>
+        </div>
+        <div class="flex flex-col max-md:max-w-full">
+          <div class="font-semibold text-red-500 max-md:max-w-full text-black">
+            Year of study
+            <span class="text-red-500">*</span>
+          </div>
+          <select style="outline: none;" class="flex gap-2 px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
+
+              <option value="" selected disabled>Select</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+      </div>
+      <div
+        class="flex flex-col md:grid md:grid-cols-2  gap-5 justify-center px-16 mt-6 max-md:flex-wrap max-md:px-5"
+      >
+        <div class="flex flex-col max-md:max-w-full">
+          <div class="font-semibold text-red-500 max-md:max-w-full text-black">
+            Year of study
+            <span class="text-red-500">*</span>
+          </div>
+          <select style="outline: none;" class="flex gap-2 px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
+              <option value="" selected disabled>Select</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="flex flex-col max-md:max-w-full">
+          <div class="font-semibold text-red-500 max-md:max-w-full text-black">
+            Program of choice
+            <span class="text-red-500">*</span>
+          </div>
+          <select style="outline: none;" class="flex gap-2 px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
+              <option value="" selected disabled>Select</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col py-10 mt-10 text-base leading-6 rounded-lg bg-zinc-100 max-md:max-w-full"
+    >
+      <div
+        class="md:mx-16 px-3 md:px-0 text-3xl font-bold text-orange-300 max-md:mr-2.5 max-md:max-w-full"
+      >
+        Extra infomation
+      </div>
+      <div
+        class="flex flex-col md:grid md:grid-cols-2  gap-5 justify-center px-16 mt-6 font-semibold max-md:flex-wrap max-md:px-5"
+      >
+        <div class="flex flex-col max-md:max-w-full">
+          <div class="text-red-500 max-md:max-w-full text-black">
+            Your CV
+            <span class="text-red-500">*</span>
+          </div>
+          <div class="flex gap-4 self-start mt-2 text-neutral-800">
+            <button
+              class="flex gap-2 justify-center px-5 py-2.5 rounded-lg border border-solid bg-neutral-200 border-zinc-600"
+            >
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/213e211a7ae053112afbbc969a09f3cb977bb1aa91d5eb23d1d0be2f67e5c52d?"
+                class="shrink-0 my-auto w-4 aspect-square"
+              />
+              <div>Upload file</div>
+            </button>
+            <div class="my-auto">filename.pdf</div>
+          </div>
+        </div>
+        <div class="flex flex-col text-neutral-800 max-md:max-w-full">
+          <div class="max-md:max-w-full">Your portfolio</div>
+          <button
+            class="flex gap-2 justify-center self-start px-5 py-2.5 mt-2 rounded-lg border border-solid bg-neutral-200 border-zinc-600"
+          >
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/213e211a7ae053112afbbc969a09f3cb977bb1aa91d5eb23d1d0be2f67e5c52d?"
+              class="shrink-0 my-auto w-4 aspect-square"
+            />
+            <div>Upload file</div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex flex-col md:grid md:grid-cols-2  gap-5 justify-center px-16 mt-6 max-md:flex-wrap max-md:px-5"
+      >
+        <div class="flex flex-col max-md:max-w-full">
+          <div class="font-semibold text-red-500 max-md:max-w-full text-black">
+            You know the program through
+            <span class="text-red-500">*</span>
+          </div>
+          <select style="outline: none;" class="flex gap-2 px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
+              <option value="" selected disabled>Select</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="flex flex-col max-md:max-w-full">
+          <div class="font-semibold text-red-500 max-md:max-w-full text-black">
+            Gift code (If any)
+            <span class="text-red-500">*</span>
+          </div>
+          <select style="outline: none;" class="flex gap-2 px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
+              <option value="" selected disabled>Select</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+      </div>
+      <div class="md:mx-16 md:px-0 px-3">
+      <div
+        class="  mt-6 font-semibold text-neutral-800 max-md:mr-2.5 max-md:max-w-full"
+      >
+        Inquiry detail and questions
+      </div>
+      <textarea style="outline: none;"
+      class="shrink-0 self-center mt-2 p-4 max-w-full bg-white rounded-md border border-solid border-zinc-600 h-[124px] w-[992px]"
+     
+    ></textarea>
+  </div>
+    </div>
+    <button type="submit"
+      class="btn justify-center self-start px-8 py-3 mt-10 text-base font-semibold leading-6 text-white whitespace-nowrap bg-primary2 shadow-lg rounded-[100px] max-md:px-5"
+    >
+      Submit
+    </button>
+  </form>
+</div>
 
 <!--Footer-->
 <section class="bg-primary">
@@ -2078,8 +2359,13 @@ Apply now
     </main>
     <script src="/assets/js/tailwind_custom.js"></script>
     <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/form.js"></script>
   <script src="./assets/js/datdev.js"></script>
   <script src="/assets/js/internship.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!--Swal-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 </html>
