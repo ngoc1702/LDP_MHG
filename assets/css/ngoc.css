@@ -101,7 +101,14 @@ li{
   }
 
   
+.title{
+    cursor:pointer;
+}
 
+.error-input{
+    border:1px solid red !important;
+    color:red !important;
+}
 
   @media only screen and (max-width: 767px) {
     .popup{

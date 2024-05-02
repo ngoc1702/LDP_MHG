@@ -15,6 +15,7 @@ window.addEventListener('scroll', function() {
     // console.log("SCROLL")
     header.classList.add('bg-white');
     header.classList.add('top');
+    header.classList.add('shadow-lg');
     svgElement1.setAttribute('fill', 'black');
     svgElement2.setAttribute('fill', 'black');
     svgElement3.setAttribute('fill', 'black');
@@ -28,6 +29,7 @@ window.addEventListener('scroll', function() {
     
   } else {
     header.classList.remove('bg-white');
+    header.classList.add('shadow-lg');
     svgElement1.setAttribute('fill', 'white');
     svgElement2.setAttribute('fill', 'white');
     svgElement3.setAttribute('fill', 'white');
@@ -55,6 +57,7 @@ window.addEventListener('scroll', function() {
       if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
           // Nếu section hiện tại đang được cuộn đến, kích hoạt menu link tương ứng
           menuLinks.forEach(function (link) {
+         
               link.classList.remove('active');
           });
           menuLinks[index].classList.add('active');
@@ -62,10 +65,12 @@ window.addEventListener('scroll', function() {
   });
 });
 
+
+
 // Hiển thị popup sau 3 giây
 setTimeout(function () {
   document.getElementById("popup-overlay").style.display = "flex";
-}, 3000);
+}, 1000);
 
 // Bắt sự kiện click cho nút đóng
 document.getElementById("close_popup").addEventListener("click", function (event) {
@@ -76,6 +81,19 @@ document.getElementById("close_popup").addEventListener("click", function (event
   document.getElementById("popup-overlay").style.display = "none";
   document.getElementById("popup").classList.add('hidden');
 });
+
+
+function openApply() {
+  var menuLinks3 = document.querySelector('.nav__link3');
+  document.getElementById("apply").style.display = "flex";
+  document.getElementById("container_content").style.display = "none";
+  menuLinks3.classList.remove("active")
+//   document.querySelectorAll(".nav__link").forEach(function(element) {
+//     element.style.display = "none";
+// });
+
+}
+
 
 
 function openModal() {
@@ -105,6 +123,7 @@ function printClickedElement(event) {
   if (!isAlreadyActive) {
     // Nếu phần tử chưa có lớp 'active', thì thêm lớp
     clickedElement.classList.add("active");
+   
 
     // Xóa lớp 'active' từ tất cả các phần tử khác
     var allLinks =
@@ -115,6 +134,15 @@ function printClickedElement(event) {
       }
     });
   }
+//   else{
+//     document.getElementById("apply").style.display = "none";
+//     var section_content = document.querySelectorAll(".section_content");
+// section_content.forEach(function(element) {
+//     element.classList.add('flex');
+//     element.style.display = "flex"
+// });
+
+//   }
 }
 
 
