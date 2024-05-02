@@ -5,6 +5,8 @@ var activeElement = clickables[0]; // Phần tử đang được click
 
 clickables.forEach(function(clickable) {
     clickable.addEventListener('click', function() {
+
+      
         // Loại bỏ các lớp và thêm lớp cho phần tử được click
         this.classList.remove("bg-white", "border-2", "shadow", "border-neutral-200");
         this.classList.add("text-white", "border-r-8", "border-[#F2CA8F]", "shadow-xl", "bg-[#003A34]");
@@ -90,3 +92,5 @@ var swiper = new Swiper(".mySwiper1", {
 		  
 	  });
   });
+
+ 
