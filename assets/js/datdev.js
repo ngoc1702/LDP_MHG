@@ -106,7 +106,7 @@ async function lightBox(item) {
   const smImgContain = item.gallery.map((img, index) => {
     return `<img loading="lazy" srcset="${img}" data-index=${index} class="smImg ${
       index === currentIndex ? "selected" : ""
-    } shrink-0 p-[2px] md:p-1 max-w-40 aspect-video cursor-pointer rounded-lg object-cover" />`;
+    } shrink-0 p-[2px] md:p-1 max-w-20 md:max-w-40 aspect-video cursor-pointer rounded-lg object-cover" />`;
   });
   document.getElementById("smImgContain").innerHTML = await smImgContain
     .join("")
