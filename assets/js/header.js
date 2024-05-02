@@ -84,16 +84,13 @@ document.getElementById("close_popup").addEventListener("click", function (event
 
 
 function openApply() {
-  var menuLinks3 = document.querySelector('.nav__link3');
+ 
   document.getElementById("apply").style.display = "flex";
   document.getElementById("container_content").style.display = "none";
-  menuLinks3.classList.remove("active")
-//   document.querySelectorAll(".nav__link").forEach(function(element) {
-//     element.style.display = "none";
-// });
+
+
 
 }
-
 
 
 function openModal() {
@@ -123,26 +120,19 @@ function printClickedElement(event) {
   if (!isAlreadyActive) {
     // Nếu phần tử chưa có lớp 'active', thì thêm lớp
     clickedElement.classList.add("active");
-   
-
+  
     // Xóa lớp 'active' từ tất cả các phần tử khác
     var allLinks =
       document.querySelectorAll("li a");
+      // console.log(allLinks)
     allLinks.forEach(function (link) {
       if (link !== clickedElement) {
         link.classList.remove("active");
-      }
+        // console.log(link)
+      } 
     });
   }
-//   else{
-//     document.getElementById("apply").style.display = "none";
-//     var section_content = document.querySelectorAll(".section_content");
-// section_content.forEach(function(element) {
-//     element.classList.add('flex');
-//     element.style.display = "flex"
-// });
-
-//   }
+ 
 }
 
 
