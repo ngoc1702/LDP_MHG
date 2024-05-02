@@ -183,6 +183,11 @@ const selectOptions = document.querySelectorAll(".select-option");
 options.forEach((tab) => {
   tab.addEventListener("click", (e) => {
     let index = e.target.getAttribute("index-tab");
+    e.target.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "nearest",
+    });
     options.forEach(
       (tab) =>
         (tab.className =
