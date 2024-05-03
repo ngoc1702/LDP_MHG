@@ -29,7 +29,7 @@
     </button>
   </div>
   <div>
-  <button id="scroll-to-top" onclick="scrollToTop()" class="mt-6 md:mt-8 bg-white p-2 md:p-4 rounded rounded border-1 border-opacity-20 border-brand-1 shadow-lg">
+  <button id="scroll-to-top" onclick="scrollToTop()" class="hidden mt-6 md:mt-8 bg-white p-2 md:p-[14px] rounded rounded border-1 border-opacity-20 border-brand-1 shadow-lg">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path d="M12.0002 10.828L7.05023 15.778L5.63623 14.364L12.0002 8L18.3642 14.364L16.9502 15.778L12.0002 10.828Z" fill="#222222"/>
     </svg>
@@ -60,20 +60,20 @@
          <li><a class="nav__link " href="https://mtp.mandalahotels.com.vn/?#About_Mandala">About Mandala</a></li> 
         </div>
         <div class="text-pantone md:text-white text-sm leading-6 px-4">
-         <li><a class="nav__link " href="https://mtp.mandalahotels.com.vn/?#Program-detail" >Program detail</a> </li>
+         <li><a class="nav__link " href="https://mtp.mandalahotels.com.vn/?#Program_detail">Program detail</a> </li>
         </div>
         <div class=" text-pantone md:text-white text-sm leading-6 px-4">
-          <li><a class="nav__link "  href="https://mtp.mandalahotels.com.vn/aplly.html#Internship_content">Internship content</a></li>
+          <li><a class="nav__link "  href="https://mtp.mandalahotels.com.vn/?#Internship_content">Internship content</a></li>
         </div>
         <div
           class="text-pantone md:text-white text-sm leading-6 grow whitespace-nowrap px-4"
         >
-         <li> <a class="nav__link" href="https://mtp.mandalahotels.com.vn/aplly.html#How_to_work">How to work</a></li>
+         <li> <a class="nav__link" href="https://mtp.mandalahotels.com.vn/?#How_to_work">How to work</a></li>
         </div>
         <div
           class="text-pantone md:text-white text-sm leading-6 grow whitespace-nowrap px-4"
         >
-         <li> <a class="nav__link"  href="https://mtp.mandalahotels.com.vn/aplly.html#FAQ">FAQ</a></li>
+         <li> <a class="nav__link"  href="https://mtp.mandalahotels.com.vn/?#FAQ">FAQ</a></li>
         </div>
         <div
         class="text-pantone md:text-white text-sm leading-6 grow whitespace-nowrap px-4"
@@ -222,13 +222,13 @@ Apply now
                   class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border-1 border-solid border-zinc-600 text-zinc-400 max-md:pr-5 max-md:max-w-full"
                 >
                 </input>
-                <div class="mt-6 max-md:max-w-full text-black">
+                <div for="datepicker" class="mt-6 max-md:max-w-full text-black">
                   Date of birth
                   <span class="text-red-500">*</span>
                 </div>
-                <input type="date"  id="datepicker" style="outline: none;"
+                <input type="date" id="datepicker" name="datepicker" style="outline: none;"
                   placeholder="Select"
-                  class="flex gap-2 px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap"
+                  class="flex justify-between px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap"
                 >
             </input>
                 <div class="mt-6 max-md:max-w-full text-black">

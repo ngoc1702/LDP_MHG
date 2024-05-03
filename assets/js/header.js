@@ -14,7 +14,7 @@ window.addEventListener('scroll', function() {
   if (window.scrollY > 80) {
     // console.log("SCROLL")
     header.classList.add('bg-white');
-    header.classList.add('top');
+    // header.classList.add('top');
     header.classList.add('shadow-lg');
     svgElement1.setAttribute('fill', 'black');
     svgElement2.setAttribute('fill', 'black');
@@ -64,6 +64,28 @@ window.addEventListener('scroll', function() {
       }
   });
 });
+
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        var scrollToTopBtn = document.getElementById("scroll-to-top");
+
+        // Nếu vị trí cuộn của trang lớn hơn 20px, hiển thị nút scroll-to-top
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            // Nếu không, ẩn nút scroll-to-top
+            scrollToTopBtn.style.display = "none";
+        }
+    }
+
+    function scrollToTop() {
+        // Cuộn trang lên đầu
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
 
 
 
