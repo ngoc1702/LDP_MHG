@@ -3231,7 +3231,7 @@ mark {
   text-decoration: none;
 }
 .js .cd-h-timeline__date::after {
-  content: "";
+  content: attr(data-counter);
   position: absolute;
   left: 12px;
   -webkit-transform: translateX(-50%);
@@ -3389,6 +3389,9 @@ mark {
 }
 .js .cd-h-timeline__event-date::before {
   content: "- ";
+}
+.cd-h-timeline__date span {
+  pointer-events: auto;
 }
 @-webkit-keyframes cd-enter-right {
   0% {
