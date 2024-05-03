@@ -3153,7 +3153,7 @@ mark {
   position: relative;
   height: 100%;
   margin: 0 40px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .js .cd-h-timeline__dates::after,
 .js .cd-h-timeline__dates::before {
@@ -3189,8 +3189,8 @@ mark {
   left: 0;
   top: 49px;
   height: 6px;
+  width: 858px !important;
   background-color: var(--Accent-02, #15634a);
-
   transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
   transition: transform 0.4s, -webkit-transform 0.4s;
@@ -3198,10 +3198,10 @@ mark {
 .js .cd-h-timeline__filling-line {
   position: absolute;
   z-index: 1;
-  left: 0;
+  left: 20px;
   top: 0;
   height: 100%;
-  width: 100%;
+  width: calc(100% + 20px);
   background-color: #f2ca8f;
   background-color: var(--brand-11, #f2ca8f);
   -webkit-transform: scaleX(0);
@@ -3231,7 +3231,10 @@ mark {
   text-decoration: none;
 }
 .js .cd-h-timeline__date::after {
-  content: attr(data-counter);
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   left: 12px;
   -webkit-transform: translateX(-50%);
@@ -3243,6 +3246,22 @@ mark {
   border-radius: 50%;
   background-color: var(--Accent-02, #15634a);
   transition: background-color 0.3s;
+  color: white;
+}
+.js ol li:nth-child(1) .cd-h-timeline__date::after {
+  content: "1";
+}
+.js ol li:nth-child(2) .cd-h-timeline__date::after {
+  content: "2";
+}
+.js ol li:nth-child(3) .cd-h-timeline__date::after {
+  content: "3";
+}
+.js ol li:nth-child(4) .cd-h-timeline__date::after {
+  content: "4";
+}
+.js ol li:nth-child(5) .cd-h-timeline__date::after {
+  content: "5";
 }
 .js .cd-h-timeline__date:hover::after {
   background-color: #f2ca8f;
@@ -3256,6 +3275,9 @@ mark {
 }
 .js .cd-h-timeline__date--selected {
   pointer-events: none;
+}
+.js .cd-h-timeline__date--selected span {
+  color: #f2ca8f;
 }
 .js .cd-h-timeline__date--selected::after {
   background-color: hsl(74, 93%, 32%);
