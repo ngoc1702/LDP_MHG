@@ -16,6 +16,6 @@
    }
 
    #smImgContain::-webkit-scrollbar{
-      height: 8px;
+      height: 4px;
    }
 }

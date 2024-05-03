@@ -72,7 +72,7 @@ vid.addEventListener("click", (event) => {
 // Item Gallery
 function itemGallery(item) {
   return `<div class="item-gallery bg-[url(${item.thumbnail_src})] bg-cover relative w-[160px] md:w-[240px] aspect-square rounded-3xl relative shrink-0 cursor-pointer overflow-hidden border-2 border-[#003A34] hover:border-[#D2A97D] hover:text-[#D2A97D]" onclick="openLightBox(${item.id})">
-   <div id="title-gallery"
+   <div
      class="w-full md:py-4 py-2 gap-2.5 absolute bottom-0 bg-[#FFFFFF] rounded-b-3xl text-center text-sm md:text-xl font-semibold leading-6 md:leading-7 hover:underline cursor-pointer ">
      ${item.title}
    </div>
@@ -106,7 +106,7 @@ async function lightBox(item) {
   const smImgContain = item.gallery.map((img, index) => {
     return `<img loading="lazy" srcset="${img}" data-index=${index} class="smImg ${
       index === currentIndex ? "selected" : ""
-    } shrink-0 p-[2px] md:p-1 max-w-40 aspect-video cursor-pointer rounded-lg object-cover" />`;
+    } shrink-0 p-[2px] md:p-1 max-w-20 md:max-w-40 aspect-video cursor-pointer rounded-lg object-cover" />`;
   });
   document.getElementById("smImgContain").innerHTML = await smImgContain
     .join("")
