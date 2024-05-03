@@ -13,6 +13,13 @@ input:focus {
   select:focus {
     border:1px solid #D2A97D !important; /* Màu border khi được focus */
   }
+
+  select option:hover {
+    background-color: #D2A97D !important; /* Màu nền muốn thay đổi khi hover */
+  }
+  .hover-option:hover {
+    background-color: #D2A97D !important; /* Màu nền khi hover */
+  }
 .bg-white {
     background-color: white !important;
   }

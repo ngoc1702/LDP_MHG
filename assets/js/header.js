@@ -174,8 +174,9 @@ function scrollToTop() {
 
 
 
+
+
 var swiper = new Swiper(".mySwiper_aboutMandala", {
- 
   autoplay: {
     delay: 5000,
     disableOnInteraction: false,
