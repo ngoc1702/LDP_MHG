@@ -3131,12 +3131,12 @@ mark {
   --font-primary: "Fira Sans", sans-serif;
   --font-secondary: "Playfair Display", serif;
 }
-body {
+/* body {
   color: hsl(0, 0%, 22%);
   color: var(--cd-color-1);
   background-color: hsl(0, 0%, 97%);
   background-color: var(--cd-color-3);
-}
+} */
 .js .cd-h-timeline {
   opacity: 0;
   transition: opacity 0.2s;
@@ -3216,7 +3216,7 @@ body {
 }
 .js .cd-h-timeline__date {
   position: absolute;
-  bottom: -19px;
+  bottom: -18px;
   z-index: 2;
   text-align: center;
   font-size: 0.8em;
@@ -3241,7 +3241,6 @@ body {
   height: 24px;
   width: 24px;
   border-radius: 50%;
-
   background-color: var(--Accent-02, #15634a);
   transition: background-color 0.3s;
 }
