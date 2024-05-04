@@ -61,7 +61,14 @@
 
   function initEvents(timeline) {
     var self = timeline;
-    // click on arrow navigation
+
+    function autoClick() {
+      var currentIndex = Util.getIndexInArray(self.date, self.selectedDate);
+      var nextIndex = (currentIndex + 1) % self.date.length;
+      self.date[nextIndex].click();
+    }
+
+    setInterval(autoClick, 3500);
     self.navigation[0].addEventListener("click", function (event) {
       event.preventDefault();
       translateTimeline(self, "prev");
