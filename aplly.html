@@ -222,15 +222,18 @@ Apply now
                   class="justify-center items-start px-4 py-2.5 mt-2 font-medium whitespace-nowrap bg-white rounded-md border-1 border-solid border-zinc-600 text-zinc-400 max-md:pr-5 max-md:max-w-full"
                 >
                 </input>
-                <div for="datepicker" class="mt-6 max-md:max-w-full text-black">
+                
+                <div for="datepicker"  class="mt-6 max-md:max-w-full text-black">
                   Date of birth
                   <span class="text-red-500">*</span>
                 </div>
-                <input type="date" id="datepicker" name="datepicker" style="outline: none;"
-                  placeholder="Select"
-                  class="flex justify-between px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap"
-                >
+                <input onchange="updatePlaceholder()" type="date" id="datepicker" name="datepicker" style="outline: none"
+                placeholder="Select"
+                        
+                        class="flex-auto text-zinc-400 justify-between px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
+
             </input>
+
                 <div class="mt-6 max-md:max-w-full text-black">
                   City/ State
                   <span class="text-red-500">*</span>
@@ -265,12 +268,13 @@ Apply now
                     Gender
                     <span class="text-red-500">*</span>
                   </div>
-                  <select style="outline: none;" class="flex gap-2 px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
-                      <option value="" selected disabled>Select</option>
-                      <option  class="hover-option" value="male">Male</option>
-                      <option  class="hover-option" value="female">Female</option>
-                      <option  class="hover-option" value="prefer_not_to_say">Prefer not to say</option>
-                    </select>
+                  <select id="mySelect" style="outline: none;" class="flex gap-2 px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
+                    <option value="" selected disabled>Select</option>
+                    <option class=" text-black" value="male">Male</option>
+                    <option class=" text-black" value="female">Female</option>
+                    <option class=" text-black" value="prefer_not_to_say">Prefer not to say</option>
+                </select>
+                
 
                   
                 <div class="mt-6 max-md:max-w-full text-black">
@@ -335,45 +339,49 @@ Apply now
             <select style="outline: none;" class="flex gap-2 px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
 
                 <option value="" selected disabled>Select</option>
-                <option value="Freshman">Freshman</option>
-                <option value="Sophomore">Sophomore</option>
-                <option value="Junior">Junior</option>
-                <option value="Senior">Senior</option>
-                <option value="Graduate School">Graduate School</option>
-                <option value="Other">Other</option>
+                <option class="text-black" value="Freshman">Freshman</option>
+                <option class="text-black" value="Sophomore">Sophomore</option>
+                <option class="text-black" value="Junior">Junior</option>
+                <option class="text-black" value="Senior">Senior</option>
+                <option class="text-black" value="Graduate School">Graduate School</option>
+                <option class="text-black" value="Other">Other</option>
               </select>
           </div>
         </div>
         <div
-          class="flex flex-col md:grid md:grid-cols-2  gap-10 justify-center px-16 mt-6 max-md:flex-wrap max-md:px-5"
+          class="flex flex-col   gap-10 justify-center px-16 mt-6 max-md:flex-wrap max-md:px-5"
         >
-          <div class="flex flex-col max-md:max-w-full">
+          <!-- <div class="flex flex-col max-md:max-w-full">
             <div class="font-semibold text-red-500 max-md:max-w-full text-black">
               Year of study
               <span class="text-red-500">*</span>
             </div>
             <select style="outline: none;" class="flex gap-2 px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
-                <option value="" selected disabled>Select</option>
-                <option value="Freshman">Freshman</option>
-                <option value="Sophomore">Sophomore</option>
-                <option value="Junior">Junior</option>
-                <option value="Senior">Senior</option>
-                <option value="Graduate School">Graduate School</option>
-                <option value="Other">Other</option>
+                <option class="text-black" value="" selected disabled>Select</option>
+                <option class="text-black" value="Freshman">Freshman</option>
+                <option class="text-black" value="Sophomore">Sophomore</option>
+                <option class="text-black" value="Junior">Junior</option>
+                <option class="text-black" value="Senior">Senior</option>
+                <option class="text-black" value="Graduate School">Graduate School</option>
+                <option class="text-black" value="Other">Other</option>
               </select>
-          </div>
+          </div> -->
           <div class="flex flex-col max-md:max-w-full">
             <div class="font-semibold text-red-500 max-md:max-w-full text-black">
               Program of choice
               <span class="text-red-500">*</span>
             </div>
-            <select style="outline: none;" class="flex gap-2 px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
-                <option value="" selected disabled>Select</option>
-                <option value="OM Trainee 4 weeks">OM Trainee 4 weeks</option>
-                <option value="OM Trainee 8 weeks">OM Trainee 8 weeks</option>
-                <option value="OM Trainee 16 weeks">OM Trainee 16 weeks</option>
-                <option value="GM Trainee for Future Owners 8 Weeks">GM Trainee for Future Owners 8 Weeks</option>
-                <option value="GM Trainee for Future Owners 16 Weeks">GM Trainee for Future Owners 16 Weeks</option>
+            <select style="outline: none;" class="flex-1 w-full  gap-2 px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
+                <option class="text-black" value="" selected disabled>Select</option>
+                <option class="text-black" value="Standard Trainee 8 weeks">Standard Trainee 8 weeks</option>
+                <option class="text-black" value="Standard Trainee 12 weeks">Standard Trainee 12 weeks</option>
+                <option class="text-black" value="Standard Trainee 16 weeks">Standard Trainee 16 weeks</option>
+                <option class="text-black" value="OM Trainee 8 weeks">OM Trainee 8 weeks</option>
+                <option class="text-black" value="OM Trainee 12 weeks">OM Trainee 12 weeks</option>
+                <option class="text-black" value="OM Trainee 16 weeks">OM Trainee 16 weeks</option>
+                <option class="text-black" value="GM Trainee for Future Owners 8 Weeks">GM Trainee for Future Owners 8 Weeks</option>
+                <option class="text-black" value="GM Trainee for Future Owners 12 Weeks">GM Trainee for Future Owners 12 Weeks</option>
+                <option class="text-black" value="GM Trainee for Future Owners 16 Weeks">GM Trainee for Future Owners 16 Weeks</option>
               </select>
           </div>
         </div>
@@ -395,31 +403,24 @@ Apply now
               <span class="text-red-500">*</span>
             </div>
             <div class="flex gap-4 self-start mt-2 text-neutral-800">
-              <button
-                class="flex gap-2 justify-center px-5 py-2.5 rounded-lg border border-solid bg-neutral-200 border-zinc-600"
-              >
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/213e211a7ae053112afbbc969a09f3cb977bb1aa91d5eb23d1d0be2f67e5c52d?"
-                  class="shrink-0 my-auto w-4 aspect-square"
-                />
+              <button onclick="document.getElementById('fileInput').click()" class="flex gap-2 justify-center px-5 py-2.5 rounded-lg border border-solid bg-neutral-200 border-zinc-600">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/213e211a7ae053112afbbc969a09f3cb977bb1aa91d5eb23d1d0be2f67e5c52d?" class="shrink-0 my-auto w-4 aspect-square" />
                 <div>Upload file</div>
+                <input type="file" id="fileInput"  style="display: none;"  onchange="uploadFile(this)">
               </button>
-              <div class="my-auto">filename.pdf</div>
+              
+              <div id="fileName" class="my-auto">Chưa chọn file</div>
             </div>
           </div>
           <div class="flex flex-col text-neutral-800 max-md:max-w-full">
             <div class="max-md:max-w-full">Your portfolio</div>
-            <button
-              class="flex gap-2 justify-center self-start px-5 py-2.5 mt-2 rounded-lg border border-solid bg-neutral-200 border-zinc-600"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/213e211a7ae053112afbbc969a09f3cb977bb1aa91d5eb23d1d0be2f67e5c52d?"
-                class="shrink-0 my-auto w-4 aspect-square"
-              />
-              <div>Upload file</div>
-            </button>
+            <div class="mt-2">
+              <button onclick="document.getElementById('fileInput').click()" class="flex gap-2 justify-center px-5 py-2.5 rounded-lg border border-solid bg-neutral-200 border-zinc-600">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/213e211a7ae053112afbbc969a09f3cb977bb1aa91d5eb23d1d0be2f67e5c52d?" class="shrink-0 my-auto w-4 aspect-square" />
+                <div>Upload file</div>
+                <input type="file" id="fileInput"  style="display: none;"  onchange="uploadFile(this)">
+              </button>
+            </div>
           </div>
         </div>
         <div
@@ -432,22 +433,22 @@ Apply now
             </div>
             <select style="outline: none;" class="flex gap-2 px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
                 <option value="" selected disabled>Select</option>
-                <option value="Google Search">Google Search</option>
-                <option value="Instagram">Instagram</option>
-                <option value="Tiktok">Tiktok</option>
-                <option value="Linkedin">Linkedin</option>
-                <option value="Facebook">Facebook</option>
-                <option value="Abroader">Abroader</option>
-                <option value="Friends/ Family">Friends/ Family</option>
-                <option value="Teachers">Teachers</option>
-                <option value="University/ College">University/ College</option>
-                <option value="Others">Others</option>
+                <option class=" text-black" value="Google Search">Google Search</option>
+                <option class=" text-black" value="Instagram">Instagram</option>
+                <option class=" text-black" value="Tiktok">Tiktok</option>
+                <option class=" text-black" value="Linkedin">Linkedin</option>
+                <option class=" text-black" value="Facebook">Facebook</option>
+                <option class=" text-black" value="Abroader">Abroader</option>
+                <option class=" text-black" value="Friends/ Family">Friends/ Family</option>
+                <option class=" text-black" value="Teachers">Teachers</option>
+                <option class=" text-black" value="University/ College">University/ College</option>
+                <option class=" text-black" value="Others">Others</option>
               </select>
           </div>
           <div class="flex flex-col max-md:max-w-full">
             <div class="font-semibold text-red-500 max-md:max-w-full text-black">
               Gift code (If any)
-              <span class="text-red-500">*</span>
+              <!-- <span class="text-red-500">*</span> -->
             </div>
             <select style="outline: none;" class="flex gap-2 px-4 py-3 mt-2 font-medium whitespace-nowrap bg-white rounded-md border border-solid border-zinc-600 text-zinc-400 max-md:flex-wrap">
                 <option value="" selected disabled>Select</option>
@@ -596,6 +597,7 @@ Apply now
 </main>
 <script src="/assets/js/tailwind_custom.js"></script>
 <script src="./assets/js/header.js"></script>
+<script src="./assets/js/form.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </body>
 </html>
