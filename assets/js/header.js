@@ -92,7 +92,7 @@ window.addEventListener('scroll', function() {
 // Hiển thị popup sau 3 giây
 setTimeout(function () {
   document.getElementById("popup-overlay").style.display = "flex";
-}, 10000);
+}, 1000);
 
 // Bắt sự kiện click cho nút đóng
 document.getElementById("close_popup").addEventListener("click", function (event) {
