@@ -1,3 +1,4 @@
+
 function validatePhoneNumber(phoneNumber) {
     return phoneNumber !== "" && phoneNumber.length === 10 && !isNaN(phoneNumber) && phoneNumber.charAt(0) === '0';
 
@@ -43,85 +44,91 @@ function submitPopup() {
  console.log(name_popup)
  console.log(phone_popup)
  console.log(emailValue)
-    if (
-        name_popup === "" ||
-        phone_popup === "" ||
-        emailValue === "" 
-    ) {
+}
 
-    } else {
-        // loading.style.display = "inline-block";
-        // overlay.style.display = "block";
-        var formData = [{
-            name: name_popup,
-            phone: phone_popup,
-            email_from: emailValue,          
-            type: "opportunity",
-        }];
 
-        $.ajax({
-            url: "mtprogram@mandalahotels.com.vn",
-            method: "POST",
-            dataType: "json",
-            data: JSON.stringify({
-                data: formData,
-            }),
-            success: function (res) {
-                // loading.style.display = "none";
-                // overlay.style.display = "none";
-                if (res.result?.is_success) {
-                    console.log(res)
-                    swal("Thành công", "Thông tin của quý khách đã được gửi tới hệ thống thành công, quý khách sẽ nhận được liên hệ từ bộ phận tư vấn trong vòng 24 giờ tới...", "success");
-                } else {
-                    swal("Lỗi", "Hệ thống đang trong quá trình bảo trì, vui lòng quay lại sau...", "error");
-                }
-            },
-            error: function (xhr, status, error) {
-
-                // loading.style.display = "none";
-                // overlay.style.display = "none";
-                swal("Lỗi", "Hệ thống đang trong quá trình phát triển, vui lòng quay lại sau...", "error");
-            },
-        });
-
-    // $.ajax({
-    //     url: "mtprogram@mandalahotels.com.vn",
-        
-    //     dataType: "json",
-    //     type: "POST",
-    //     contentType: "application/json",
-    //     success: function (response) {
-    
-    //         // loading.style.display = "none";
-    //         // overlay.style.display = "none";
-    //         console.log(response)
-    //         if (response.status == "Success") {
-    //             swal("Thành công", "Đã gửi thông tin thành công", "success");
-    //         } else {
-    //             swal("Lỗi", "Hệ thống đang trong quá trình bảo trì, vui lòng quay lại sau...", "error");
-    //         }
-    //     },
-    //     error: function () {
-    
-    //         // loading.style.display = "none";
-    //         // overlay.style.display = "none";
-    //         swal("Lỗi", "Hệ thống đang trong quá trình phát triển, vui lòng quay lại sau...", "error");
-    //     }
-    // });
+function sendEmail(){
+    var name_popup = document.getElementById("name_popup").value;
+    var phone_popup = document.getElementById("phone_popup").value;
+    var emailValue = document.getElementById("email_popup").value;
+    const dataForm = {
+        subject: "thông tin user",
+        text: {
+           name: "Ngoc",
+           phone: "039676543",
+           email: "fdgdf@gmail.com",
+        },
+        attachments: [
+               
+            ]
     }
-};
-
-
-
+    
+    // console.log(dataForm);
+    // // Gửi yêu cầu POST đến endpoint '/sendmail' trên máy chủ
+    fetch('https://news-api.toolhub.asia/email/send-email', { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            subject: "thông tin user",
+            text: {
+               name: name_popup,
+               phone: phone_popup,
+               email: emailValue,
+            },
+            attachments: []
+        })
+        // data: JSON.stringify({
+        //     data: dataForm,
+        // }),
+    })
+    .then(response => {
+        console.log(response);
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Gửi email không thành công');
+    })
+    .then(data => {
+        document.getElementById("loadingContainer").style.display="flex";
+        document.getElementById("popup-overlay").style.display="none";
+        console.log(data.status); // Log trạng thái gửi email
+        Swal.fire({
+            icon: 'success',
+            title: 'Thành công!',
+            text: 'Email đã được gửi thành công.'
+        });
+        document.getElementById("loadingContainer").style.display="none";
+    })
+    .catch(error => {
+        document.getElementById("loadingContainer").style.display="flex";
+        document.getElementById("popup-overlay").style.display="none";
+        console.error('Lỗi:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Lỗi!',
+            text: 'Đã xảy ra lỗi khi gửi email.'
+        });
+        document.getElementById("loadingContainer").style.display="none";
+    });
+}
+ 
+ 
 document
     .getElementById("popup")
     .addEventListener("submit", function (event) {
-        event.preventDefault();
+        event.preventDefault()        
         submitPopup();
-
+        // document.getElementById("popup").style.display="none";
         if (errorName_popup.style.display === "none" && errorPhone_popup.style.display === "none" && errorEmail_popup.style.display === "none") {
-      
+            document.getElementById("popup-overlay").style.display="none";
+            document.getElementById("loadingContainer").style.display="flex";
+            sendEmail()
+            // document.getElementById("loadingContainer").style.display="none";
             document.getElementById("popup").reset();
-       
         }
-    });
+    })
+
+
+    
