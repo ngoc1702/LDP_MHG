@@ -126,10 +126,10 @@ async function lightBox(item) {
       smImgs.forEach((img) => img.classList.remove("selected"));
       e.target.classList.add("selected");
       e.target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-      })
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
       setImage(e.target);
       currentIndex = e.target.getAttribute("data-index"); //New index when you click slide
     })
@@ -191,10 +191,10 @@ options.forEach((tab) => {
     options.forEach(
       (tab) =>
         (tab.className =
-          "option md:px-6 md:py-3 px-4 py-2 text-center md:text-start text-[#5E5E5E] cursor-pointer")
+          "option   flex md:px-6 whitespace-nowrap md:py-3 px-4 py-2 text-center md:text-start text-[#5E5E5E] cursor-pointer")
     );
     e.target.className =
-      "option md:px-6 md:py-3 px-4 py-2 text-center md:text-start text-white bg-[#D2A97D] rounded-[100px] cursor-pointer";
+      "option  flex  md:px-6 md:py-3 whitespace-nowrap px-4 py-2 text-center md:text-start text-white bg-[#D2A97D] rounded-[100px] cursor-pointer";
     selectOptions.forEach((option) => option.classList.add("hidden"));
     selectOptions[index - 1].classList.remove("hidden");
   });
